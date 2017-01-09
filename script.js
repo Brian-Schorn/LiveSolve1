@@ -14,8 +14,17 @@ $('#newEmployeeForm').on('submit', function(event){
     newEmployeeObject[inputFieldName] = inputFieldValue;
   }
 
-  var newRow = '<tr><td>' + newEmployeeObject.firstName + '</td><td>' + newEmployeeObject.lastName + '</td><td>' + newEmployeeObject.idNumber + '</td><td>' + newEmployeeObject.jobTitle + '</td><td>' + newEmployeeObject.annualSalary + '</td><td><button class="deleteButton">Delete</button></tr>';
-  $('#employeesTable').append(newRow);
+  var $newRow = $('<tr><td>' + newEmployeeObject.firstName + '</td><td>' + newEmployeeObject.lastName + '</td><td>' + newEmployeeObject.idNumber + '</td><td>' + newEmployeeObject.jobTitle + '</td><td>' + newEmployeeObject.annualSalary + '</td></tr>');
+
+  var $deleteButton = $('<td><button class="deleteButton">Delete</button></td>')
+
+  $deleteButton.data('salary', newEmployeeObject.annualSalary);
+  console.log("data is: " + $deleteButton.data('salary'));
+
+  // console.log($newRow);
+  $newRow.append($deleteButton);
+
+  $('#employeesTable').append($newRow);
   updateMonthlySalary(newEmployeeObject.annualSalary)
   clearForm();
   console.log(totalMonthlySalary);
@@ -23,8 +32,10 @@ $('#newEmployeeForm').on('submit', function(event){
 });
 
 $('#employeesTable').on('click', '.deleteButton', function(){
+
+  console.log($(this).parent().data('salary'));
+  updateMonthlySalary(-$(this).parent().data('salary'));
   $(this).parent().parent().remove();
-  updateMonthlySalary(-$(this).parent().prev().text());
 
 });
 });
