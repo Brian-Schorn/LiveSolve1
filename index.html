@@ -8,17 +8,19 @@
 
   <!-- Form Section -->
   <section>
-    <label for="firstName">First Name</label>
-    <input type="text" name="firstName" placeholder="First Name">
-    <label for="lastName">Last Name</label>
-    <input type="text" name="lastName" placeholder="Last Name">
-    <label for="idNumber">ID Number</label>
-    <input type="text" name="idNumber" placeholder="ID Number">
-    <label for="jobTitle">Job Title</label>
-    <input type="text" name="jobTitle" placeholder="Job Title">
-    <label for="annualSalary">Annual Salary</label>
-    <input type="text" name="annualSalary" placeholder="Annual Salary">
-    <button type="submit" name="newEmployee">Submit!</button>
+    <form id="newEmployeeForm">
+      <label for="firstName">First Name</label>
+      <input type="text" name="firstName" placeholder="First Name">
+      <label for="lastName">Last Name</label>
+      <input type="text" name="lastName" placeholder="Last Name">
+      <label for="idNumber">ID Number</label>
+      <input type="text" name="idNumber" placeholder="ID Number">
+      <label for="jobTitle">Job Title</label>
+      <input type="text" name="jobTitle" placeholder="Job Title">
+      <label for="annualSalary">Annual Salary</label>
+      <input type="text" name="annualSalary" placeholder="Annual Salary">
+      <button type="submit" name="newEmployee">Submit!</button>
+    </form>
   </section>
   <!-- //Tables of Employees -->
   <section>
@@ -40,23 +42,22 @@
           <th>
             Annual Salary
           </th>
+          <th>
+            Delete!
+          </th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>
+      <tbody id="employeesTable">
 
-          </td>
-        </tr>
 
       </tbody>
     </table>
 
   </section>
   <!-- //Monthly Salary Total -->
-  <b>Monthly Salary Expenditures: </b>
-  <section>
 
+  <section>
+      <b>Monthly Salary Expenditures: </b><span id="monthlySalary">0</span>
   </section>
 </body>
 
